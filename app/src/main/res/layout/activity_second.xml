@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SecondActivity">
+
+    <TextView
+        android:id="@+id/heartTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="7dp"
+        android:layout_marginBottom="15dp"
+        android:text="Heart Rate:"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/heartRate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/videoView" />
+
+    <TextView
+        android:id="@+id/repTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="23dp"
+        android:text="Respiratory Rate:"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/respRate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/heartRate" />
+
+    <Button
+        android:id="@+id/nextPage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_centerInParent="true"
+        android:layout_marginEnd="13dp"
+        android:layout_marginBottom="372dp"
+        android:text="SYMPTOMS"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/videoView"
+        app:layout_constraintTop_toBottomOf="@+id/uploadSigns" />
+
+    <Button
+        android:id="@+id/uploadSigns"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="21dp"
+        android:text="UPLOAD SIGNS"
+        app:layout_constraintBottom_toTopOf="@+id/nextPage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/timerTextView"
+        app:layout_constraintTop_toBottomOf="@+id/timerTextView" />
+
+    <Button
+        android:id="@+id/respRate"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="59dp"
+        android:text="MEASURE RESPIRATORY RATE"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/repTextView" />
+
+    <Button
+        android:id="@+id/heartRate"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="22dp"
+        android:text="MEASURE HEART BEAT"
+        app:layout_constraintBottom_toTopOf="@+id/repTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/heartTextView" />
+
+    <TextView
+        android:id="@+id/timerTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="99dp"
+        android:layout_marginBottom="101dp"
+        android:text="45"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/uploadSigns"
+        app:layout_constraintStart_toEndOf="@+id/videoView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <VideoView
+        android:id="@+id/videoView"
+        android:layout_width="191dp"
+        android:layout_height="189dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="213dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginBottom="91dp"
+        app:layout_constraintBottom_toTopOf="@+id/heartTextView"
+        app:layout_constraintEnd_toStartOf="@+id/nextPage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
