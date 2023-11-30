@@ -1,6 +1,9 @@
 package com.example.myloginapp;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -9,6 +12,7 @@ import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.VideoView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.BufferedReader;
@@ -21,21 +25,22 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
-public class SecondActivity extends AppCompatActivity {
+public class MeasureHeartAndRespRateActivity extends AppCompatActivity {
 
-    private DatabaseHelper2 dbHelper;
+    private HealthDatabaseHelper dbHelper;
     private TextView heartRateTextView;
     private TextView respRateTextView;
     private TextView timerTextView;
     private static final long RESULT_DELAY = 45000;
     private VideoView videoView;
+    private static final String CHANNEL_ID = "heartRateChannel";
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
-        dbHelper = new DatabaseHelper2(this);
+        dbHelper = new HealthDatabaseHelper(this);
         heartRateTextView = findViewById(R.id.heartTextView);
         respRateTextView = findViewById(R.id.repTextView);
         timerTextView = findViewById(R.id.timerTextView);
@@ -45,12 +50,7 @@ public class SecondActivity extends AppCompatActivity {
         videoView.setMediaController(mediaController);
         videoView.setVideoURI(Uri.parse(videoPath));
         Map<String, String> symptomData = new HashMap<>();
-//        Button nextPage = findViewById(R.id.nextPage);
-//        nextPage.setOnClickListener(v -> {
-//            Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-//            startActivity(intent);
-//        });
-
+        createNotificationChannel();
         Button uploadSigns = findViewById(R.id.uploadSigns);
         uploadSigns.setOnClickListener(v -> {
             dbHelper.insertData(symptomData.get("Heart-Rate"), symptomData.get("Resp-Rate"));
@@ -77,7 +77,13 @@ public class SecondActivity extends AppCompatActivity {
                 throw new RuntimeException(e);
             }
             Handler handler = new Handler();
-            handler.postDelayed(() -> heartRateTextView.setText(heartRateTextView.getText() + res), RESULT_DELAY);
+            handler.postDelayed(() -> {
+                double heartRateValue = Double.parseDouble(res);
+                if (heartRateValue > 150) {
+                    showFeedbackDialog();
+                }
+                heartRateTextView.setText(heartRateTextView.getText() + res);
+            }, RESULT_DELAY);
 
         });
 
@@ -137,4 +143,35 @@ public class SecondActivity extends AppCompatActivity {
         }
         return csvDataArray;
     }
+
+    private void createNotificationChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = "Heart Rate Channel";
+            String description = "Channel for heart rate notifications";
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
+            channel.setDescription(description);
+
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            if (notificationManager != null) {
+                notificationManager.createNotificationChannel(channel);
+            }
+        }
+    }
+
+    private void showFeedbackDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("High Heart Rate");
+        builder.setMessage("Are you okay?");
+        builder.setPositiveButton("Yes", (dialog, which) -> {
+            // Handle the user's response (e.g., log or take action)
+            dialog.dismiss();
+        });
+        builder.setNegativeButton("No", (dialog, which) -> {
+            // Handle the user's response (e.g., log or take action)
+            dialog.dismiss();
+        });
+        builder.create().show();
+    }
+
 }

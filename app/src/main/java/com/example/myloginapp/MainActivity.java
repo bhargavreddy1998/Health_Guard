@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
             if(username.getText().toString().equals("admin") && password.getText().toString().equals("admin")){
                 //correct
                 Toast.makeText(MainActivity.this,"LOGIN SUCCESSFUL",Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                Intent intent = new Intent(MainActivity.this, RedirectPage.class);
                 startActivity(intent);
             }else
                 //incorrect

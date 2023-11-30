@@ -1,3 +1,45 @@
 <resources>
     <string name="app_name">MyLoginApp</string>
+
+    <string name="side_plank">
+        Benefits of Plank \n1 Helps improve your posture. \n2 Balance and Stability.
+        \n3 Strengthens the shoulders and arms. \n4 Engages the core muscles. \n5 Enhances overall body strength.
+    </string>
+
+    <string name="lunges">
+        Benefits of Lunges \n1 Strengthens your lower body muscles. \n2 Improves flexibility. \n3 Enhances balance.
+        \n4 Targets the quadriceps and hamstrings. \n5 Activates the glutes. \n6 Boosts metabolism.
+    </string>
+
+    <string name="high_stepping">
+        Benefits of High Stepping \n1 Increases heart rate and burns calories. \n2 Strengthens leg muscles.
+        \n3 Improves cardiovascular health. \n4 Tones the muscles in the thighs and calves. \n5 Enhances coordination.
+        \n6 Aids in weight management.
+    </string>
+
+    <string name="abs_crunches">
+        Benefits of Abs Crunches \n1 Strengthens abdominal muscles. \n2 Helps achieve a toned midsection.
+        \n3 Improves core stability. \n4 Targets the rectus abdominis. \n5 Assists in better posture.
+        \n6 May reduce lower back pain.
+    </string>
+
+    <string name="pushups">
+        Benefits of Pushups \n1 Strengthens upper body muscles. \n2 Engages core muscles. \n3 Enhances overall upper body strength.
+        \n4 Improves chest and shoulder definition. \n5 Promotes functional fitness. \n6 Can be done anywhere without equipment.
+    </string>
+
+    <string name="side_plank_duration">Recommended Duration: 10 minutes</string>
+    <string name="side_plank_calories_burned">Calories Burned: 20 kcal</string>
+
+    <string name="lunges_duration">Recommended Duration: 10 minutes</string>
+    <string name="lunges_calories_burned">Calories Burned: 80 kcal</string>
+
+    <string name="high_stepping_duration">Recommended Duration: 10 minutes</string>
+    <string name="high_stepping_calories_burned">Calories Burned: 60 kcal</string>
+
+    <string name="abs_crunches_duration">Recommended Duration: 20 minutes</string>
+    <string name="abs_crunches_calories_burned">Calories Burned: 70 kcal</string>
+
+    <string name="pushups_duration">Recommended Duration: 5 minutes</string>
+    <string name="pushups_calories_burned">Calories Burned: 30 kcal</string>
 </resources>

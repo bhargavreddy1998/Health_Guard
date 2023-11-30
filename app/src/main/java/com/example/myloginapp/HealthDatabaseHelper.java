@@ -10,7 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-public class DatabaseHelper2 extends SQLiteOpenHelper {
+public class HealthDatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "health_database";
     private static final int DATABASE_VERSION = 1;
 
@@ -26,7 +26,7 @@ public class DatabaseHelper2 extends SQLiteOpenHelper {
                     COLUMN_RESPIRATORY_RATE + " TEXT" +
                     ")";
 
-    public DatabaseHelper2(Context context) {
+    public HealthDatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 

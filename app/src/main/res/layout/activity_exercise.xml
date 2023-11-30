@@ -1,0 +1,81 @@
+<!-- res/layout/activity_exercise.xml -->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <SeekBar
+        android:id="@+id/waterSeekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="1000"
+        android:progress="0"
+        android:layout_alignParentTop="true"/>
+
+    <TextView
+        android:id="@+id/progressTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Water Consumption: 0 mL"
+        android:layout_below="@id/waterSeekBar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/buttonDone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Done"
+        android:layout_below="@id/progressTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/sidePlankButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Side Plank"
+        android:layout_below="@id/buttonDone"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/lungesButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lunges"
+        android:layout_below="@id/sidePlankButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/highSteppingButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="High Stepping"
+        android:layout_below="@id/lungesButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/absCrunchesButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Abs Crunches"
+        android:layout_below="@id/highSteppingButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/pushupsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pushups"
+        android:layout_below="@id/absCrunchesButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Add any other UI elements as needed -->
+
+</RelativeLayout>
